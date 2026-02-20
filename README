@@ -38,16 +38,16 @@ load the final cluster labels and generate a bar chart showing the distribution 
 Project Scripts
 ================
 
-- protein_clustering.py: The main analysis pipeline. This script handles data loading, feature engineering, 
-PCA, algorithm comparison, and hyperparameter optimization.
+* protein_clustering.py: This script handles data loading, feature engineering, PCA, algorithm comparison, and hyperparameter 
+optimization.
 
-- cluster_distribution.py: A utility script to visualize the final cluster assignments saved by the main script. 
+* cluster_distribution.py: A utility script to visualize the final cluster assignments saved by the main script. 
 It plots a bar chart of the Top 20 clusters, plus any "Noise" (cluster -1) and an "Outros" (Others) category.
 
 Requirements
 =============
 
-- numpy pandas scikit-learn matplotlib seaborn tqdm
+* numpy pandas scikit-learn matplotlib seaborn tqdm
 
 How to Run
 ===========
@@ -55,16 +55,16 @@ How to Run
 1. Ensure your FASTA file (e.g., astral-scopdom-seqres-gd-sel-95-2.08.fa) is in the same directory. Then, execute 
 the main script:
 
-     * python protein_clustering.py
+* python protein_clustering.py
 
 2. After the main script finishes (and best_clustering_labels.npy is created), run the visualization script:
 
-     * python cluster_distribution.py
+* python cluster_distribution.py
 
 Outputs
 ========
 
-- clustering_results.csv: A table comparing the internal and external evaluation metrics for all tested clustering 
+* clustering_results.csv: A table comparing the internal and external evaluation metrics for all tested clustering 
 algorithms.
 
-- pca_variance.png: A line plot showing the cumulative explained variance by the number of SVD components.
+* pca_variance.png: A line plot showing the cumulative explained variance by the number of SVD components.
