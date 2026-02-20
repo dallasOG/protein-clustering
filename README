@@ -10,15 +10,32 @@ Workflow
 
 The main analysis script (`protein_clustering.py`) executes the following steps:
 
-1. Process FASTA: Reads a specified FASTA file (e.g., `astral-scopdom-seqres-gd-sel-95-2.08.fa`), extracting all protein sequences and their corresponding class labels.
-2. Feature Extraction: For each sequence, it extracts "2x2" k-mers (4-mers with a skip) and builds a high-dimensional, sparse binary feature matrix where each row is a sequence and each column is a unique k-mer pattern.
-3. Dimensionality Reduction: Applies **TruncatedSVD** (a form of PCA for sparse matrices) to reduce the feature matrix to a manageable number of components (e.g., 300).
-4. Algorithm Comparison: Runs a suite of clustering algorithms on the reduced data, including **KMeans**, **DBSCAN**, **OPTICS**, **Agglomerative Clustering**, **Birch**, and more.
+1. Process FASTA: Reads a specified FASTA file (e.g., `astral-scopdom-seqres-gd-sel-95-2.08.fa`), 
+extracting all protein sequences and their corresponding class labels.
+
+2. Feature Extraction: For each sequence, it extracts "2x2" k-mers (4-mers with a skip) and builds 
+a high-dimensional, sparse binary feature matrix where each row is a sequence and each column is a 
+unique k-mer pattern.
+
+3. Dimensionality Reduction: Applies TruncatedSVD (a form of PCA for sparse matrices) to reduce 
+the feature matrix to a manageable number of components (e.g., 300).
+
+4. Algorithm Comparison: Runs a suite of clustering algorithms on the reduced data, including KMeans, 
+DBSCAN, OPTICS, Agglomerative Clustering, Birch, and more.
+
 5. Metric Evaluation: Evaluates each algorithm's performance using:
-     5.1 Internal Metrics (unsupervised): Silhouette Score, Calinski-Harabasz Score, Davies-Bouldin Score.
-     5.2 External Metrics (supervised, using true labels): F1-Macro Score, Adjusted Rand Score (ARI), Normalized Mutual Info Score (NMI).
-6. Optimization: Selects the best-performing algorithm (based on a chosen internal metric like 'silhouette') and performs a grid search to find the optimal hyperparameters.
-7. Visualization: A separate script (`cluster_distribution.py`) can be run after the main analysis to load the final cluster labels and generate a bar chart showing the distribution of the largest clusters.
+
+     5.1 Internal Metrics (unsupervised): Silhouette Score, Calinski-Harabasz Score, Davies-Bouldin 
+     Score.
+
+     5.2 External Metrics (supervised, using true labels): F1-Macro Score, Adjusted Rand Score (ARI), 
+     Normalized Mutual Info Score (NMI).
+
+6. Optimization: Selects the best-performing algorithm (based on a chosen internal metric like 'silhouette')
+and performs a grid search to find the optimal hyperparameters.
+
+7. Visualization: A separate script (`cluster_distribution.py`) can be run after the main analysis to load the 
+final cluster labels and generate a bar chart showing the distribution of the largest clusters.
 
 Project Scripts
 ================
